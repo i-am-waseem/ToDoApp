@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+{% if todo_list %}
+    {% for task in todo_list %}
+      <ul class="list-group">
+
+          <li class="list-group-item my-auto">{{task}}
+            <form action="del_task/{{task.id}}" method="post">
+              {% csrf_token %}
+            <button class="btn btn-danger float-right"type="submit" name="delete">delete</button>
+          </form>
+          </li>
+      </ul>
+    {% endfor %}
+{% endif %}
+
+{% endblock content %}

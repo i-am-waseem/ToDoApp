@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-danger navbar-dark">
+        <a class="navbar-brand mx-auto" href="#"><h2>ToDo List</h2></a>
+        <!-- <button class="btn btn-light mr-2">SignUp!</button>
+        <button class="btn btn-light px-4">Login</button> -->
+      </nav>
+    </header>
+
+    <div class = "container">
+      <div class="mb-4">
+      	<form action="{% url 'new_task'%}" method="post">
+      		{% csrf_token %}
+
+      		<input type="text" name="add_task" placeholder="Add a task" style="width:100%; margin-bottom: 20px; margin-top: 20px;">
+
+      		<button class="btn btn-primary" type="submit">Add a task</button>
+
+      	</form>
+      </div>
+
+        {% block content %}
+
+        {% endblock content %}
+
+    </div>
+
+    <footer>
+    	<div class="footer-copyright text-center py-3">© 2020 No Copyright:
+        <a class="text-primary">Public</a>
+        </div>
+
+    </footer>
+
+
+  </body>
+</html>
